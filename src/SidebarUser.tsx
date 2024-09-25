@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './styles/sidebarUser.module.css';
 
-const SidebarUser: React.FC = () => {
+interface SidebarUserProps {
+  handleLogout: () => void;
+}
+
+const SidebarUser: React.FC<SidebarUserProps> = ({ handleLogout }) => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.header}>
@@ -16,8 +20,13 @@ const SidebarUser: React.FC = () => {
         <div className={styles.menuItem}>Minhas Compras</div>
         <div className={styles.menuItem}>Sobre nós</div>
         <div className={styles.menuItem}>Regras</div>
+        <div 
+          className={styles.menuItem}
+          onClick={() => handleLogout()} // Simulando logout
+        >
+          Logout
+        </div>
       </div>
-
     </div>
   );
 };
